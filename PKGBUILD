@@ -10,7 +10,7 @@ license=('GPL3')
 depends=('qt5-base')
 makedepends=('git')
 source=("https://github.com/Youda008/DoomRunner/archive/v${pkgver}.tar.gz")
-md5sums=("SKIP")
+md5sums=('2cbafa2be376257c165ec4fc0f4ba9eb')
 
 build() {
 	mkdir -p "${srcdir}/DoomRunner-${pkgver}/build-dynamic"
