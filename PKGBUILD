@@ -9,25 +9,18 @@ url="https://github.com/Youda008/DoomRunner"
 license=('GPL3')
 depends=('qt5-base')
 makedepends=('git')
-source=("git://github.com/qbasicer/qzdl.git")
+source=("https://github.com/Youda008/DoomRunner/archive/v${pkgver}.tar.gz")
 md5sums=("SKIP")
 
-build()
-{
-  cd "${srcdir}/${_gitname}"
-  git checkout ${_branch}
-  rm -rf "${srcdir}/${_gitname}-build"
-  mkdir "${srcdir}/${_gitname}-build"
-  ls -A | grep -v .git | xargs -d '\n' cp -r -t ../${_gitname}-build
-  cd "${srcdir}/${_gitname}-build"
-  cmake ../qzdl-build 
-  make
+build() {
+	mkdir -p "${srcdir}/DoomRunner-${pkgver}/build-dynamic"
+	cd "${srcdir}/DoomRunner-${pkgver}/build-dynamic"
+	qmake ../DoomRunner.pro -spec linux-g++ "CONFIG+=release"
+	make	
 }
 
-package()
-{
-  cd "${srcdir}/${_gitname}-build"
-  mkdir -p "${pkgdir}/usr/bin"
-  mv "zdl" "${pkgdir}/usr/bin/qzdl"
+package() {
+	cd "${srcdir}/DoomRunner-${pkgver}/build-dynamic"
+	make install INSTALL_ROOT="${pkgdir}/" 
 }
 
