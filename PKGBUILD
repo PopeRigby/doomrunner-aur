@@ -9,7 +9,7 @@ url="https://github.com/Youda008/DoomRunner"
 license=('GPL3')
 depends=('qt5-base')
 makedepends=('git')
-source=("https://github.com/Youda008/DoomRunner/archive/v${pkgver}.tar.gz")
+source=("${pkgname}-${pkgver}.tar.gz::https://github.com/Youda008/DoomRunner/archive/v${pkgver}.tar.gz")
 md5sums=('2cbafa2be376257c165ec4fc0f4ba9eb')
 
 build() {
