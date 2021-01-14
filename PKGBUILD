@@ -25,5 +25,7 @@ package() {
 	make install INSTALL_ROOT="${pkgdir}/" 
 	mkdir -p "${pkgdir}/usr/bin"
 	ln -sT "/opt/DoomRunner/bin/DoomRunner" "${pkgdir}/usr/bin/doomrunner"
+	chmod 777 "${pkgdir}/opt/DoomRunner/bin"
+	#TODO: Create desktop file
 }
 
